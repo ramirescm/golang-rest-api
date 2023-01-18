@@ -1,0 +1,207 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Swagger Example API",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "name": "API Support",
+            "email": "my@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0"
+    },
+    "host": "localhost:9000",
+    "basePath": "/api",
+    "paths": {
+        "/courses": {
+            "get": {
+                "description": "Get details of all courses",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "courses"
+                ],
+                "summary": "Get details of all courses",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/models.Course"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/courses/": {
+            "put": {
+                "consumes": [
+                    "text/plain"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "courses"
+                ],
+                "summary": "Update a course",
+                "parameters": [
+                    {
+                        "description": "Course Data",
+                        "name": "message",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Course"
+                        }
+                    }
+                ],
+                "responses": {}
+            },
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "courses"
+                ],
+                "summary": "Add a new course",
+                "parameters": [
+                    {
+                        "description": "Course Data",
+                        "name": "message",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Course"
+                        }
+                    }
+                ],
+                "responses": {}
+            },
+            "delete": {
+                "consumes": [
+                    "text/plain"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "courses"
+                ],
+                "summary": "Remove a course",
+                "parameters": [
+                    {
+                        "description": "Course Data",
+                        "name": "message",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Course"
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/courses/{id}": {
+            "get": {
+                "description": "Get details of one course",
+                "consumes": [
+                    "text/plain"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "courses"
+                ],
+                "summary": "Get details of one course",
+                "parameters": [
+                    {
+                        "description": "Course Data",
+                        "name": "message",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Course"
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/employees/": {
+            "get": {
+                "tags": [
+                    "employees"
+                ],
+                "summary": "Get all employee",
+                "responses": {}
+            },
+            "put": {
+                "tags": [
+                    "employees"
+                ],
+                "summary": "Update a employee",
+                "responses": {}
+            },
+            "post": {
+                "tags": [
+                    "employees"
+                ],
+                "summary": "Create a employee",
+                "responses": {}
+            },
+            "delete": {
+                "tags": [
+                    "employees"
+                ],
+                "summary": "Remove a employee",
+                "responses": {}
+            }
+        },
+        "/employees/{id}": {
+            "get": {
+                "description": "get string by ID",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "employees"
+                ],
+                "summary": "Get an employee",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Employee ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        }
+    },
+    "definitions": {
+        "models.Course": {
+            "type": "object"
+        }
+    }
+}

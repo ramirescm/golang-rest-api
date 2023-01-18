@@ -1,0 +1,139 @@
+basePath: /api
+definitions:
+  models.Course:
+    type: object
+host: localhost:9000
+info:
+  contact:
+    email: my@gmail.com
+    name: API Support
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Swagger Example API
+  version: "1.0"
+paths:
+  /courses:
+    get:
+      consumes:
+      - application/json
+      description: Get details of all courses
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.Course'
+            type: array
+      summary: Get details of all courses
+      tags:
+      - courses
+  /courses/:
+    delete:
+      consumes:
+      - text/plain
+      parameters:
+      - description: Course Data
+        in: body
+        name: message
+        required: true
+        schema:
+          $ref: '#/definitions/models.Course'
+      produces:
+      - application/json
+      responses: {}
+      summary: Remove a course
+      tags:
+      - courses
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Course Data
+        in: body
+        name: message
+        required: true
+        schema:
+          $ref: '#/definitions/models.Course'
+      produces:
+      - application/json
+      responses: {}
+      summary: Add a new course
+      tags:
+      - courses
+    put:
+      consumes:
+      - text/plain
+      parameters:
+      - description: Course Data
+        in: body
+        name: message
+        required: true
+        schema:
+          $ref: '#/definitions/models.Course'
+      produces:
+      - application/json
+      responses: {}
+      summary: Update a course
+      tags:
+      - courses
+  /courses/{id}:
+    get:
+      consumes:
+      - text/plain
+      description: Get details of one course
+      parameters:
+      - description: Course Data
+        in: body
+        name: message
+        required: true
+        schema:
+          $ref: '#/definitions/models.Course'
+      produces:
+      - application/json
+      responses: {}
+      summary: Get details of one course
+      tags:
+      - courses
+  /employees/:
+    delete:
+      responses: {}
+      summary: Remove a employee
+      tags:
+      - employees
+    get:
+      responses: {}
+      summary: Get all employee
+      tags:
+      - employees
+    post:
+      responses: {}
+      summary: Create a employee
+      tags:
+      - employees
+    put:
+      responses: {}
+      summary: Update a employee
+      tags:
+      - employees
+  /employees/{id}:
+    get:
+      consumes:
+      - application/json
+      description: get string by ID
+      parameters:
+      - description: Employee ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses: {}
+      summary: Get an employee
+      tags:
+      - employees
+swagger: "2.0"

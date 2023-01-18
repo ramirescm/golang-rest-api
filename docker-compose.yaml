@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+
+  db:
+    image: arm64v8/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: golang_rest_api
+    ports:
+      - "3308:3306"
