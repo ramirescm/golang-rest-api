@@ -31,6 +31,27 @@ paths:
       summary: Get details of all courses
       tags:
       - courses
+    post:
+      consumes:
+      - application/json
+      description: Create a new course with the input paylod
+      parameters:
+      - description: Create course
+        in: body
+        name: course
+        required: true
+        schema:
+          $ref: '#/definitions/models.Course'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Course'
+      summary: Create a new course
+      tags:
+      - courses
   /courses/:
     delete:
       consumes:
@@ -46,22 +67,6 @@ paths:
       - application/json
       responses: {}
       summary: Remove a course
-      tags:
-      - courses
-    post:
-      consumes:
-      - application/json
-      parameters:
-      - description: Course Data
-        in: body
-        name: message
-        required: true
-        schema:
-          $ref: '#/definitions/models.Course'
-      produces:
-      - application/json
-      responses: {}
-      summary: Add a new course
       tags:
       - courses
     put:

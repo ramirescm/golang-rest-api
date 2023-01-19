@@ -11,24 +11,25 @@ import (
 	"github.com/ramirescm/golang-rest-api/pkg/course"
 )
 
-// Create course
-//
-//	@Summary	Add a new course
-//	@Tags		courses
-//	@Accept		json
-//	@Produce	json
-//	@Param		message	body		models.Course		true	"Course Data"
-//	@Router		/courses/ [post]
+// CreateCourse godoc
+// @Summary Create a new course
+// @Description Create a new course with the input paylod
+// @Tags courses
+// @Accept  json
+// @Produce  json
+// @Param course body models.Course true "Create course"
+// @Success 200 {object} models.Course
+// @Router /courses [post]
 func CreateCourse(w http.ResponseWriter, r *http.Request) {
-	// w.Header().Set("Content-Type", "application/json")
-	// var newCourse models.Course
-	// json.NewDecoder(r.Body).Decode(&newCourse)
-	// err := course.GetService().CreateCourse(&newCourse)
-	// if err != nil {
-	// 	fmt.Println("Erro GetAllCourses")
-	// 	w.WriteHeader(http.StatusBadRequest)
-	// 	return
-	// }
+	w.Header().Set("Content-Type", "application/json")
+	var newCourse models.Course
+	json.NewDecoder(r.Body).Decode(&newCourse)
+	err := course.GetService().CreateCourse(&newCourse)
+	if err != nil {
+		w.WriteHeader(http.StatusBadRequest)
+		return
+	}
+	json.NewEncoder(w).Encode(newCourse)
 }
 
 // GetCourseById
